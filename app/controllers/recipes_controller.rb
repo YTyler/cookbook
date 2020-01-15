@@ -30,11 +30,18 @@ class RecipesController < ApplicationController
   end
 
   def update
-
+    @recipe = Recipe.find(params[:id])
+    if @recipe.update(recipe_params)
+      redirect_to recipes_path
+    else
+      render :edit
+    end
   end
 
   def destroy
-
+    @recipe = Recipe.find(params[:id])
+    @recipe.destroy
+    redirect_to recipes_path
   end
 
   private
