@@ -1,4 +1,6 @@
 class Recipe < ApplicationRecord
+  scope :top, -> { where(rank: 10)}
+  scope :bottom, -> { where(rank: 1)}
   has_and_belongs_to_many(:ingredients)
   validates :name, presence: true
   validates :category, presence: true
@@ -11,4 +13,11 @@ class Recipe < ApplicationRecord
   validates :instructions, format: { with: /[a-z\s]/i,
   message: "only allows letters" }
 
+  before_save(:titleize_recipe)
+
+  private
+    def titleize_recipe
+      self.name = self.name.downcase
+      self.name = self.name.titleize
+    end
 end

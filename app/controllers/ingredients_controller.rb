@@ -21,7 +21,7 @@ class IngredientsController < ApplicationController
     if @ingredient.save
       redirect_to ingredients_path
     else
-      redirect_to new_ingredient_path
+      render :new
     end
   end
 
