@@ -23,15 +23,21 @@
 Recipe.destroy_all
 
 15.times do |index|
-  Recipe.create!(name: Faker::Food.dish, category: Faker::Beer.style, rank: Faker::Number.between(from: 1, to: 10), instructions: Faker::Food.description)
+  Recipe.create!(name: Faker::Movies::LordOfTheRings.location, category: Faker::Games::Pokemon.move, rank: Faker::Number.between(from: 1, to: 10), instructions: Faker::Movies::StarWars.wookiee_sentence)
 end
 
 p "Created #{Recipe.count} recipes"
 
+
 Ingredient.destroy_all
 
 30.times do |index|
-  Ingredient.create!(name: Faker::Food.ingredient, amount: Faker::Food.measurement)
+  Ingredient.create!(name: Faker::Food.ingredient, amount: Faker::TvShows::RickAndMorty.quote)
 end
 
 p "Created #{Ingredient.count} ingredients"
+
+# Brett 11:03am
+# George 10:45am
+# Saul 9:53am
+# Eva 10:15am
