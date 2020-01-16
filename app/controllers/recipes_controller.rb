@@ -6,6 +6,7 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @ingredients = Ingredient.all
     @recipe = Recipe.find(params[:id])
     render :show
   end
@@ -18,7 +19,7 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params)
     if @recipe.save
-      redirect_to recipe_path
+      redirect_to recipes_path
     else
       render :new
     end
@@ -43,6 +44,8 @@ class RecipesController < ApplicationController
     @recipe.destroy
     redirect_to recipes_path
   end
+
+
 
   private
   def recipe_params

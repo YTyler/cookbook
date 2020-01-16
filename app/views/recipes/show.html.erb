@@ -3,6 +3,12 @@
 <h3><%= @recipe.rank %></h3>
 <h3><%= @recipe.instructions %></h3>
 
+<% if @ingredients.any? %>
+
+<%= collection_select(:person, :city_id, @ingredients, :id, :name) %>
+<% end %>
+
+
 <p><%= link_to "Edit", edit_recipe_path(@recipe) %></p>
 <p><%= link_to "Delete", recipe_path(@recipe), :data => {:confirm => "Are you sure?", :method => "delete"} %></p>
 
