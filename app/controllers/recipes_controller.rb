@@ -32,7 +32,10 @@ class RecipesController < ApplicationController
 
   def update
     @recipe = Recipe.find(params[:id])
-    if @recipe.update(recipe_params)
+    if params.has_key?(:selected)
+      @recipe.ingredients << Ingredient.find(params[:selected].fetch(:ingredient_id))
+      redirect_to recipe_path
+    elsif @recipe.update(recipe_params)
       redirect_to recipes_path
     else
       render :edit
