@@ -4,9 +4,20 @@
 <h3><%= @recipe.rank %></h3>
 <h3><%= @recipe.instructions %></h3>
 
+
+<% if @needed_ingredients.any? %>
+<ul>
+<% @needed_ingredients.each do |needed_ingredient| %>
+  <li><%= link_to needed_ingredient.name, recipe_path(needed_ingredient) %></li>
+<% end %>
+</ul>
+<% else %>
+  <p>There are no ingredients have been added to this recipe.</p>
+<% end %>
+
 <% if @ingredients.any? %>
 <%= form_for @recipe do |f| %>
-<%= collection_select(:selected, :ingredient_id, @ingredients, :id, :name) %> 
+<%= collection_select(:selected, :ingredient_id, @ingredients, :id, :name) %>
 <%= f.submit 'Add Ingredient' %>
 <% end %>
 <% end %>
