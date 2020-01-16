@@ -36,8 +36,3 @@ Ingredient.destroy_all
 end
 
 p "Created #{Ingredient.count} ingredients"
-
-# Brett 11:03am
-# George 10:45am
-# Saul 9:53am
-# Eva 10:15am

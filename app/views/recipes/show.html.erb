@@ -8,7 +8,7 @@
 <% if @needed_ingredients.any? %>
 <ul>
 <% @needed_ingredients.each do |needed_ingredient| %>
-  <li><%= link_to needed_ingredient.name, recipe_path(needed_ingredient) %></li>
+  <li><%= link_to needed_ingredient.name, ingredient_path(needed_ingredient) %></li>
 <% end %>
 </ul>
 <% else %>

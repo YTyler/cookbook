@@ -22,7 +22,7 @@ class RecipesController < ApplicationController
     if @recipe.save
       redirect_to recipes_path
     else
-      render :new
+      redirect_to new_recipe_path
     end
   end
 
