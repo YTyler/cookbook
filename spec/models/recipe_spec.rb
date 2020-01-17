@@ -10,5 +10,4 @@ describe Recipe do
   it { should allow_value('tim').for(:name) }
   it { should_not allow_value('123').for(:name) }
   it { should_not allow_value('~').for(:name) }
-
 end

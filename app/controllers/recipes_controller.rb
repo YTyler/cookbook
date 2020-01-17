@@ -20,6 +20,7 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params)
     if @recipe.save
+      flash[:nugget] = "Recipe Successfully Added"
       redirect_to recipes_path
     else
       render :new
